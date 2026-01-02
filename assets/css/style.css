@@ -360,10 +360,7 @@ button:disabled{
     color: #8b5cf6;
   }
 
-}
-@media (max-width: 768px) {
-
-  .dropdown {
+   .dropdown {
     position: relative;
   }
 
@@ -1091,47 +1088,120 @@ td:last-child{
 }
 
 /* === RESPONSIVE CSS ONLY === */
+/* ========================================================== */
+/*  REPORT PAGE - COMPACT MOBILE RESPONSIVE (ZERO SCROLL)     */
+/* ========================================================== */
 
-/* Tablets */
+/* Main Content Fix */
+.main-content {
+    padding: 20px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+/* 1. Summary Cards Fix */
+.order-summary-cards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* Desktop par 3 columns */
+    gap: 15px;
+    margin-bottom: 25px;
+}
+
+/* 2. Chart/Canvas Fix */
+.reports canvas {
+    width: 100% !important;
+    height: 300px !important; /* Mobile friendly height */
+}
+
+/* --- RESPONSIVE TABLETS (1024px) --- */
 @media (max-width: 1024px) {
-  .page-header h2 { font-size: 22px; }
-  .order-summary-cards { gap: 14px; }
-  .order-card { padding: 16px; gap: 10px; }
-  .card-info h3 { font-size: 15px; }
-  .card-info p { font-size: 24px; }
-  .filters input, .filters select, .filters button { font-size: 13px; padding: 7px 10px; }
-  .orders-table th, .orders-table td { font-size: 12px; padding: 10px; }
+    .order-summary-cards {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 10px;
+    }
+    .order-card { padding: 15px; gap: 10px; }
+    .card-icon { font-size: 24px; padding: 10px; }
+    .card-info p { font-size: 20px; }
 }
 
-/* Mobile */
+/* --- MOBILE FIX (768px) --- */
 @media (max-width: 768px) {
-  .order-summary-cards { grid-template-columns: 1fr; }
-  .order-card { flex-direction: row; justify-content: space-between; align-items: center; gap: 12px; }
-  .card-info h3 { font-size: 14px; }
-  .card-info p { font-size: 20px; }
-  .filters { flex-wrap: wrap; gap: 8px; }
-  .filters input, .filters select, .filters button { flex: 1 1 100%; }
-  .orders-table table { min-width: 100%; }
-  .orders-table th, .orders-table td { font-size: 11px; padding: 8px 10px; }
-  button.view-btn, button.edit-btn, button.delete-btn { font-size: 12px; padding: 5px 8px; margin: 2px; }
-  .reports { padding: 16px; }
-  .reports h3 { font-size: 17px; text-align: center; }
-  .reports canvas { height: auto !important; max-height: 350px; }
+    .main-content { padding: 10px; }
+
+    /* Cards ko 1 column ki jagah compact grid mein rakha taaki scroll na ho */
+    .order-summary-cards {
+        grid-template-columns: repeat(2, 1fr); 
+        gap: 8px;
+    }
+
+    .order-card {
+        padding: 10px;
+        gap: 8px;
+        border-radius: 10px;
+    }
+
+    .card-icon { font-size: 20px; padding: 8px; }
+    .card-info h3 { font-size: 12px; }
+    .card-info p { font-size: 16px; }
+
+    /* Filters ko compact kiya */
+    .filters {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 5px;
+    }
+    .filters input, .filters select, .filters button {
+        flex: 1;
+        font-size: 11px;
+        padding: 6px;
+    }
+
+    /* TABLE DESKTOP LOOK ON MOBILE */
+    .orders-table table {
+        table-layout: fixed; /* Column widths lock karne ke liye */
+        width: 100% !important;
+        font-size: 10px;
+    }
+
+    .orders-table th, .orders-table td {
+        padding: 6px 3px;
+        word-break: break-all; 
+    }
+
+    /* Table columns alignment */
+    th:nth-child(1), td:nth-child(1) { width: 15%; } 
+    th:nth-child(2), td:nth-child(2) { width: 25%; } 
+    th:nth-child(3), td:nth-child(3) { width: 20%; }
+    th:nth-child(4), td:nth-child(4) { width: 40%; }
+
+    .view-btn, .edit-btn, .delete-btn {
+        padding: 4px 5px !important;
+        font-size: 9px !important;
+        margin: 1px !important;
+    }
 }
 
-/* Small Mobile */
-@media (max-width: 480px) {
-  .page-header h2 { font-size: 20px; }
-  .order-card { flex-direction: column; align-items: flex-start; gap: 8px; padding: 14px; }
-  .card-icon { font-size: 24px; padding: 10px; }
-  .card-info h3 { font-size: 13px; }
-  .card-info p { font-size: 18px; }
-  .filters input, .filters select, .filters button { font-size: 12px; padding: 6px 8px; }
-  .orders-table th, .orders-table td { font-size: 10px; padding: 6px 8px; }
-  button.view-btn, button.edit-btn, button.delete-btn { font-size: 11px; padding: 4px 6px; }
-  .reports { padding: 12px; }
-  .reports h3 { font-size: 16px; }
-  .reports canvas { max-height: 300px !important; }
+/* --- SMALL MOBILE (380px) jaise iPhone SE --- */
+@media (max-width: 380px) {
+    .order-summary-cards {
+        grid-template-columns: 1fr; 
+        gap: 6px;
+    }
+
+    .order-card { padding: 8px; }
+
+    .orders-table table {
+        font-size: 9px;
+    }
+
+    .orders-table th, .orders-table td {
+        padding: 4px 2px;
+    }
+
+    /* Chart height kam ki */
+    .reports canvas { height: 200px !important; }
+
+    body { overflow-x: hidden; }
 }
 
 /*billing invoice */
