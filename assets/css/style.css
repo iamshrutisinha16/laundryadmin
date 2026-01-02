@@ -359,13 +359,64 @@ button:disabled{
     transform: translateY(-2px);
     color: #8b5cf6;
   }
+
+}
+@media (max-width: 768px) {
+
+  .dropdown {
+    position: relative;
+  }
+
+  .dropdown-content {
+    position: absolute;
+    bottom: 55px;              
+    left: 50%;
+    transform: translateX(-50%);
+    min-width: 160px;
+
+    background: #1e293b;
+    border-radius: 10px;
+    box-shadow: 0 -8px 20px rgba(0,0,0,0.35);
+
+    display: none;
+    padding: 6px 0;
+    z-index: 1001;
+  }
+
+  /* show on active */
+  .dropdown.active .dropdown-content {
+    display: block;
+  }
+
+  .dropdown-content li a {
+    padding: 10px 14px;
+    font-size: 13px;
+    gap: 10px;
+    justify-content: flex-start;
+  }
+
+  .dropdown-content li a i {
+    font-size: 14px;
+  }
+
+  .dropdown:hover .dropdown-content {
+    display: none;
+  }
 }
 
-/* Extra small / mobile app feel */
 @media (max-width: 480px) {
   .sidebar ul li a { font-size: 10px; }
   .sidebar ul li a i { font-size: 18px; }
   .sidebar { padding: 6px 0; }
+.dropdown-content {
+    min-width: 150px;
+    bottom: 52px;
+  }
+
+  .dropdown-content li a {
+    font-size: 12px;
+    padding: 9px 12px;
+  }
 }
 
 /* MAIN */
@@ -475,167 +526,72 @@ tr:not(:last-child){border-bottom:1px solid #e5e7eb}
   to{opacity:1;transform:none}
 }
 
-/* ============================= */
-/* RESPONSIVE – MOBILE FIRST FIX */
-/* ============================= */
-
-/* SMALL DEVICES */
-@media (max-width: 1024px) {
-
-  main{
-    padding:20px;
-  }
-
-  .stats{
-    grid-template-columns:repeat(2,1fr);
-    gap:15px;
-  }
-
-  .grid{
-    grid-template-columns:1fr;
-  }
-
-  .hero{
-    flex-direction:column;
-    align-items:flex-start;
-    gap:15px;
-    min-height:auto;
-    max-height:none;
-  }
-
-  .hero img{
-    width:90px;
-    align-self:flex-end;
-  }
-}
-
-/* MOBILE */
 @media (max-width: 768px) {
-
-  main{
-    padding:15px;
+  /* Side bar ko mobile par hide kar dena chahiye agar wo screen gher raha hai */
+  .sidebar {
+    display: none; 
   }
 
-  /* TOPBAR */
-  .topbar{
-    padding:12px 15px;
-    border-radius:16px;
+  main {
+    padding: 10px; /* Padding kam ki taaki content zyada dikhe */
   }
 
-  .search{
-    flex:1;
+  /* Topbar Search ko chhota kiya */
+  .topbar {
+    padding: 10px 15px;
+  }
+  .search { padding: 8px; }
+  .search input { width: 100px; font-size: 12px; }
+
+  /* Hero Section: Horizontal hi rakha but size chhota kiya */
+  .hero {
+    padding: 15px;
+    margin: 10px 0;
+    min-height: 100px;
+  }
+  .hero-text h1 { font-size: 18px; }
+  .hero-text p { font-size: 12px; }
+  .hero img { width: 70px; }
+
+  /* Stats: 4 columns ki jagah 2x2 grid rakha (Taaki readability bani rahe) */
+  /* Agar aapko 4 hi chahiye ek line mein toh 'repeat(4, 1fr)' kar de, par wo bahut chhota ho jayega */
+  .stats {
+    grid-template-columns: repeat(2, 1fr); 
+    gap: 10px;
+  }
+  .stat {
+    padding: 12px;
+  }
+  .stat h2 { font-size: 20px; }
+  .stat i { font-size: 20px; }
+
+  .grid {
+    grid-template-columns: 1fr;
+    gap: 15px;
+  }
+  
+  .card {
+    padding: 15px;
   }
 
-  .search input{
-    width:100%;
-    font-size:14px;
+  .table-container {
+    overflow-x: auto;
   }
-
-  .profile{
-    gap:10px;
-  }
-
-  .profile img{
-    width:36px;
-  }
-
-  /* HERO */
-  .hero{
-    padding:18px;
-    border-radius:18px;
-  }
-
-  .hero-text h1{
-    font-size:20px;
-  }
-
-  .hero-text p{
-    font-size:13px;
-  }
-
-  .hero img{
-    width:80px;
-  }
-
-  /* STATS */
-  .stats{
-    grid-template-columns:1fr 1fr;
-    gap:12px;
-  }
-
-  .stat{
-    padding:18px;
-  }
-
-  .stat i{
-    font-size:26px;
-  }
-
-  /* CARD */
-  .card{
-    padding:18px;
-    border-radius:16px;
-  }
-
-  /* TABLE */
-  table{
-    font-size:13px;
-  }
-
-  th,td{
-    padding:12px 8px;
-  }
+  table { font-size: 12px; }
 }
 
-/* EXTRA SMALL DEVICES */
-@media (max-width: 480px) {
-
-  /* STATS FULL WIDTH */
-  .stats{
-    grid-template-columns:1fr;
-  }
-
-  .hero{
-    text-align:left;
-  }
-
-  .hero img{
-    width:70px;
-  }
-
-  .hero-text h1{
-    font-size:18px;
-  }
-
-  .topbar{
-    flex-direction:column;
-    align-items:stretch;
-    gap:10px;
-  }
-
-  .profile{
-    justify-content:flex-end;
-  }
-
-  /* TABLE SCROLL FIX */
-  .table-card{
-    overflow-x:auto;
-  }
-
-  table{
-    min-width:500px;
-  }
+/* Very Small Mobile Fix */
+@media (max-width: 400px) {
+  .hero-text h1 { font-size: 16px; }
+  .stat h2 { font-size: 18px; }
+  .stats { gap: 8px; }
 }
-
 
 /*orders*/
 .orders-page{flex:1;padding:30px;animation:fade .5s ease}
-
-/* HEADER */
 .page-header h1{font-size:28px}
 .page-header p{color:#64748b;margin-top:5px}
 
-/* STATS */
 .order-stats{
   display:grid;
   grid-template-columns:repeat(4,1fr);
@@ -729,10 +685,9 @@ button:hover{transform:scale(1.15)}
 
 @media (max-width: 768px) {
   .orders-page {
-    padding: 10px !important; /* Side gaps kam kiye */
+    padding: 10px !important; 
   }
 
-  /* Header chota karo */
   .page-header h1 {
     font-size: 18px !important;
     margin-bottom: 2px;
@@ -742,56 +697,53 @@ button:hover{transform:scale(1.15)}
     margin-bottom: 15px;
   }
 
-  /* STATS: Desktop jaisa 2x2 grid (1 row mein 1 nahi) */
   .order-stats {
     display: grid !important;
-    grid-template-columns: repeat(2, 1fr) !important; /* 2 cards ek line mein */
+    grid-template-columns: repeat(2, 1fr) !important; 
     gap: 10px !important;
     margin-bottom: 20px;
   }
 
   .stat {
-    padding: 12px !important; /* Padding kam ki taaki height choti rahe */
+    padding: 12px !important; 
     border-radius: 12px !important;
   }
 
   .stat h3 {
-    font-size: 18px !important; /* Number ka size */
+    font-size: 18px !important; 
     margin-bottom: 2px;
   }
 
   .stat span {
-    font-size: 11px !important; /* Text chota */
+    font-size: 11px !important;
     opacity: 0.9;
   }
 
-  /* FILTERS: Ek line mein lane ki koshish */
   .filters {
     display: flex !important;
-    flex-wrap: nowrap !important; /* Niche na girein */
-    overflow-x: auto !important; /* Agar jagah kam ho toh side scroll ho jaye */
+    flex-wrap: nowrap !important; 
+    overflow-x: auto !important; 
     gap: 8px !important;
     padding-bottom: 10px;
     -webkit-overflow-scrolling: touch;
   }
 
   .filters input, .filters select {
-    min-width: 140px !important; /* Chote inputs */
+    min-width: 140px !important; 
     font-size: 12px !important;
     padding: 8px !important;
   }
 
-  /* TABLE: Isse Desktop jaisa look milega */
   .table-card {
     padding: 10px !important;
     border-radius: 12px !important;
-    overflow-x: auto !important; /* Horizontal scroll enable */
+    overflow-x: auto !important; 
     background: #fff;
     box-shadow: 0 4px 6px rgba(0,0,0,0.05);
   }
 
   table {
-    min-width: 650px !important; /* Table ko sikadne mat do, scroll hone do */
+    min-width: 650px !important; 
     border-collapse: collapse;
   }
 
@@ -806,7 +758,6 @@ button:hover{transform:scale(1.15)}
     font-size: 12px !important;
   }
   
-  /* Status Badge chota */
   .badge {
     padding: 4px 8px !important;
     font-size: 10px !important;
@@ -816,7 +767,7 @@ button:hover{transform:scale(1.15)}
 /* Very Small Mobile (iPhone SE etc) */
 @media (max-width: 480px) {
   .order-stats {
-    grid-template-columns: repeat(2, 1fr) !important; /* Still 2 columns */
+    grid-template-columns: repeat(2, 1fr) !important; 
   }
   
   .stat h3 {
