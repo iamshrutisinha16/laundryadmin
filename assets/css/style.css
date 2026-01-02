@@ -254,57 +254,100 @@ button:disabled{
     .dropdown-content li a i { margin-right: 10px; }
     .dropdown-content li a:hover { background-color: #34495e; }
     .dropdown:hover .dropdown-content { display: block; }
+/* ---------- MOBILE BOTTOM SIDEBAR FIX ---------- */
+@media (max-width: 768px) {
+  
+  /* Main content ko bottom bar se upar rakhne ke liye */
+  main {
+    margin-left: 0 !important;   
+    padding-bottom: 90px !important; 
+  }
 
-    /* ---------- MOBILE BOTTOM SIDEBAR ---------- */
-    @media (max-width: 768px) {
-      main { margin-left:0; padding-bottom:80px; }
-      .sidebar {
-        width: 100% !important;
-        height: 70px !important;
-        bottom: 0 !important;
-        left: 0 !important;
-        right: 0 !important;
-        position: fixed !important;
-        display: flex !important;
-        justify-content: center !important;
-        align-items: center !important;
-        padding: 0 !important;
-        margin: 0 !important;
-        border-radius: 18px 18px 0 0 !important;
-        box-shadow: 0 -5px 15px rgba(0,0,0,0.3) !important;
-      }
-      .sidebar .logo { display: none !important; }
-      .sidebar ul {
-        display: flex !important;
-        flex-direction: row !important;
-        justify-content: space-around !important;
-        align-items: center !important;
-        width: 100% !important;
-      }
-      .sidebar ul li { flex:1 !important; text-align:center !important; margin:0 !important; }
-      .sidebar ul li a {
-        display: flex !important;
-        flex-direction: column !important;
-        align-items: center !important;
-        justify-content: center !important;
-        padding: 6px 0 !important;
-        font-size: 12px !important;
-        color:#fff !important;
-        text-decoration:none !important;
-        background:none !important;
-      }
-      .sidebar ul li a span { display: none !important; }
-      .sidebar ul li a i { font-size:22px !important; }
-      .sidebar ul li.active a { color:#6366f1 !important; transform: translateY(-4px) !important; }
-      .sidebar .dropdown, .sidebar .dropdown-content, .sidebar .desktop-only { display:none !important; }
-    }
-    @media (max-width: 480px){
-      main { padding-bottom:72px; }
-      .sidebar { height:64px !important; }
-      .sidebar ul li a i { font-size:20px !important; }
-    }
+  .sidebar {
+    position: fixed !important;
+    bottom: 0 !important;
+    top: auto !important; /* Ye top position ko cancel karega */
+    left: 0 !important;
+    right: 0 !important;
+    width: 100% !important;
+    height: 70px !important;
+    background-color: #111827 !important; /* Dark background taaki icons dikhein */
+    display: flex !important;
+    flex-direction: row !important;
+    justify-content: center !important;
+    align-items: center !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    z-index: 9999 !important; /* Sabse upar dikhane ke liye */
+    border-top: 1px solid rgba(255,255,255,0.1) !important;
+    border-radius: 20px 20px 0 0 !important;
+  }
 
+  /* Logo ko mobile mein chupa dega */
+  .sidebar .logo { 
+    display: none !important; 
+  }
 
+  .sidebar ul {
+    display: flex !important;
+    flex-direction: row !important;
+    justify-content: space-around !important;
+    align-items: center !important;
+    width: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    list-style: none !important;
+  }
+
+  .sidebar ul li { 
+    flex: 1 !important; 
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+  .sidebar ul li a {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+    text-decoration: none !important;
+    width: 100% !important;
+    height: 100% !important;
+  }
+
+  /* ICONS KO FORCE KARNA */
+  .sidebar ul li a i { 
+    font-size: 24px !important; 
+    color: #ffffff !important; /* White color taaki dikhein */
+    display: inline-block !important; 
+    margin-bottom: 2px !important;
+  }
+
+  /* Text ko mobile mein hide karne ke liye (sirf icons dikheinge) */
+  .sidebar ul li a span { 
+    display: none !important; 
+  }
+
+  /* Active icon ka color change */
+  .sidebar ul li.active a i { 
+    color: #6366f1 !important; 
+    transform: translateY(-3px) !important;
+    transition: all 0.3s ease;
+  }
+
+  /* Faltu cheezein hide karne ke liye */
+  .sidebar .dropdown, 
+  .sidebar .dropdown-content, 
+  .sidebar .desktop-only { 
+    display: none !important; 
+  }
+}
+
+/* Chote phones ke liye padding adjust */
+@media (max-width: 480px) {
+  .sidebar { height: 65px !important; }
+  .sidebar ul li a i { font-size: 22px !important; }
+}
 /* MAIN */
 main{flex:1;padding:30px}
 

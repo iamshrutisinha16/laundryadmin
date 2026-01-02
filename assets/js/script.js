@@ -156,14 +156,20 @@ function filterOrders(){
   alert('Filter functionality can be implemented later');
 }
 
-/* ===== MOBILE SIDEBAR LOCK (FINAL FIX) ===== */
+/* ===== MOBILE SIDEBAR FIX (SAFE) ===== */
 (function () {
-  function fixMobileSidebar(){
+  function fixMobileSidebar() {
+    const sidebar = document.querySelector(".sidebar");
+
+    if (!sidebar) return;
+
     if (window.innerWidth <= 768) {
-      document.body.classList.remove("flex");
-      document.body.style.display = "block";
+      sidebar.classList.add("mobile-bottom");
+    } else {
+      sidebar.classList.remove("mobile-bottom");
     }
   }
+
   fixMobileSidebar();
   window.addEventListener("resize", fixMobileSidebar);
 })();
