@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>DigiTalk Admin Setting</title>
+
+<link rel="stylesheet" href="assets/css/style.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body>
+
+<!-- SIDEBAR -->
+<aside class="sidebar">
+  <div class="logo">
+    <i class="fa-solid fa-bolt"></i>
+    DigiTalk
+  </div>
+  <ul>
+    <li class="active"><a href=""><i class="fas fa-home"></i> Dashboard</a></li>
+    <li><a href="orders.html"><i class="fas fa-shopping-cart"></i> Orders</a></li> 
+    <li><a href="products.html"><i class="fas fa-box"></i> Products</a></li>
+     <li class="dropdown">
+      <a href="#" class="dropbtn"><i class="fas fa-file-invoice"></i> Billing</a>
+      <ul class="dropdown-content">
+      <li><a href="invoice.html">Invoice</a></li>
+      <li><a href="manage-orders.html">Manage Orders</a></li>
+     </ul>
+     </li>
+    <li><a href="reports.html"><i class="fas fa-chart-bar"></i> Reports</a></li>
+    <li><a href="setting.html"><i class="fas fa-cog"></i> Settings</a></li> 
+  </ul>
+</aside>
+
+<section class="billing-wrap">
+
+  <!-- Header Row -->
+  <div class="billing-top">
+    <h2>Invoice Billing</h2>
+    <button class="billing-add-btn">+ Generate Invoice</button>
+  </div>
+
+  <!-- Invoice Layout -->
+  <div class="billing-invoice-layout">
+
+    <!-- LEFT : Invoice Details -->
+    <div class="invoice-details">
+
+      <div class="invoice-header">
+        <div>
+          <h3>Invoice #INV-1023</h3>
+          <p>Date: 30-12-2025</p>
+        </div>
+        <span class="invoice-badge paid">✔ Paid</span>
+      </div>
+
+      <div class="invoice-meta">
+        <p><strong>Customer:</strong> Rahul Kumar</p>
+        <p><strong>Service:</strong> Wash & Fold</p>
+      </div>
+
+      <table class="invoice-items">
+        <thead>
+          <tr>
+            <th>Item</th>
+            <th>Qty</th>
+            <th>Rate</th>
+            <th>Amount</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Shirt</td>
+            <td>3</td>
+            <td>₹40</td>
+            <td>₹120</td>
+          </tr>
+          <tr>
+            <td>Trouser</td>
+            <td>2</td>
+            <td>₹60</td>
+            <td>₹120</td>
+          </tr>
+        </tbody>
+      </table>
+
+    </div>
+
+    <!-- RIGHT : Summary -->
+    <div class="invoice-summary">
+      <h4>Total Amount</h4>
+      <h1>₹240</h1>
+
+      <button class="download-btn">⬇ Download Invoice</button>
+    </div>
+
+  </div>
+
+</section>
+
+     <script src="assets/js/script.js"></script>
+</body>
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>DigiTalk Laundry Login</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- FONT & ICONS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  <!-- LOGIN CSS -->
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+
+<!-- STAR BACKGROUND -->
+<canvas id="stars"></canvas>
+
+<!-- LOGIN WRAPPER -->
+<div class="login-wrapper">
+  <div class="login-box">
+
+    <div class="logo">
+      <i class="fa-solid fa-bolt"></i>
+      <h2>DigiTalk <span>Laundry</span></h2>
+    </div>
+
+    <p class="subtitle">Sign in to your management portal</p>
+
+    <form id="loginForm">
+      <div class="input-group">
+        <i class="fa fa-user"></i>
+        <input type="text" placeholder="Username" required>
+      </div>
+
+      <div class="input-group">
+        <i class="fa fa-lock"></i>
+        <input type="password" placeholder="Password" required>
+      </div>
+
+      <button type="submit" id="loginBtn">
+        <span class="btn-text">Login Now</span>
+        <span class="loader" id="loader"></span>
+      </button>
+    </form>
+
+    <span class="footer-text">© 2025 DigiTalk Infotech</span>
+  </div>
+</div>
+
+<!-- LOGIN JS -->
+<script src="assets/js/script.js"></script>
+</body>
+</html>
+
